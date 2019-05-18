@@ -37,5 +37,9 @@ bash scripts/config --file .config \
         --module HID_SENSOR_ACCEL_3D \
 	--module HID_SENSOR_GYRO_3D
 
+sed -i 's/# CONFIG_IIO_BUFFER_CB is not set/CONFIG_IIO_BUFFER_CB=m/g' .config
+sed -i 's/CONFIG_EXTRA_FIRMWARE=""/CONFIG_EXTRA_FIRMWARE="tegra21x_xusb_firmware"\nCONFIG_EXTRA_FIRMWARE_DIR="firmware"/g' .config
+sed -i 's/# CONFIG_MODULE_SIG is not set/CONFIG_MODULE_SIG=n/g' .config
+
 yes "" | make olddefconfig
 

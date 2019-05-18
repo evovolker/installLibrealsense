@@ -37,6 +37,10 @@ echo -e "\e[32mApplying realsense-hid patch\e[0m"
 patch -p1 < ${INSTALL_DIR}/patches/realsense-hid-ubuntu-bionic-Jetson-4.9.140.patch
 echo -e "\e[32mApplying URBS UVC patch\e[0m"
 patch -p1 < ${INSTALL_DIR}/patches/0001-media-uvc-restrict-urb_num-no-less-than-UVC_URBS.patch
+# inserting cbate patches
+echo -e "\e[patch according to christopherbate/Nano-Realsense-Instructions.git\e[0m"
+patch -R -p1 < ${INSTALL_DIR}/patches/intel_suggested_patches.patch
+# END inserting cbate patches
 echo -e "\e[32mpowerlinefrequency-control-fix patch\e[0m"
 patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-powerlinefrequency-control-fix.patch
 
